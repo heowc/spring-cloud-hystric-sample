@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.heowc</groupId>
-    <artifactId>spring-cloud-hystric-sample</artifactId>
+    <artifactId>spring-cloud-hystrix-sample</artifactId>
     <version>0.0.1</version>
     <packaging>pom</packaging>
 
-    <name>spring-cloud-hystric-sample</name>
+    <name>spring-cloud-hystrix-sample</name>
     <description>Demo project for Spring Boot</description>
 
     <modules>

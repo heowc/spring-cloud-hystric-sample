@@ -34,21 +34,15 @@ public class ApiProductApplication {
 
     private static final String USER_API = "http://localhost:8082/user";
 
-    @HystrixCommand(fallbackMethod = "findProductFallback")
+    @HystrixCommand(fallbackMethod = "findProductFallback", threadPoolKey = "hystrix-product")
     @GetMapping("/product")
     public Stream<Product> findProductAll() {
-        try {
-            List<User> list = Arrays.asList(
-                    restTemplate.getForObject(USER_API + "/heowc", User.class),
-                    restTemplate.getForObject(USER_API + "/naeun", User.class)
-            );
+        List<User> list = Arrays.asList(
+                restTemplate.getForObject(USER_API + "/heowc", User.class),
+                restTemplate.getForObject(USER_API + "/naeun", User.class)
+        );
 
-            return list.stream().map(u -> new Product(Math.random(), "product", 0, u.getName()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return findProductFallback();
+        return list.stream().map(u -> new Product(Math.random(), "product", 0, u.getName()));
     }
 
     public Stream<Product> findProductFallback() {
