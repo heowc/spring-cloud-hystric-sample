@@ -10,3 +10,9 @@
                             └─> │ dashboard      (8080) │
                                 └───────────────────────┘
 ```
+
+### Access Url
+
+```url
+http://localhost:8081/actuator/hystrix.stream
+```
